@@ -1,8 +1,8 @@
 sbtPlugin := true
 
-organization := "com.typesafe.sbt"
+organization := "default"
 
-name := "sbt-coffeescript"
+name := "sbt-coffeescript-reactjs"
 
 version := "1.0.1-SNAPSHOT"
 
@@ -12,7 +12,8 @@ scalacOptions += "-feature"
 
 libraryDependencies ++= Seq(
   "org.webjars" % "coffee-script-node" % "1.7.1",
-  "org.webjars" % "mkdirp" % "0.3.5"
+  "org.webjars" % "mkdirp" % "0.3.5",
+  "org.webjars" % "coffee-react-transform" % "0.5.1-1"
 )
 
 resolvers ++= Seq(

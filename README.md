@@ -1,9 +1,9 @@
-sbt-coffeescript
+sbt-coffeescript with JSX-files (ReactJs) conversion.
 ================
 
 [![Build Status](https://api.travis-ci.org/sbt/sbt-coffeescript.png?branch=master)](https://travis-ci.org/sbt/sbt-coffeescript)
 
-An SBT plugin to compile [CoffeeScript](http://coffeescript.org/) sources to JavaScript.
+An SBT plugin to compile [CoffeeScript](http://coffeescript.org/) and [CoffeeScript JSX](https://github.com/jsdf/coffee-react-transform/) sources to JavaScript.
 
 To use this plugin use the addSbtPlugin command within your project's `plugins.sbt` file:
 
@@ -13,7 +13,7 @@ Your project's build file also needs to enable sbt-web plugins. For example with
 
     lazy val root = (project in file(".")).enablePlugins(SbtWeb)
 
-Once configured, any `*.coffee` or `*.litcoffee` files placed in `src/main/assets` will be compiled to JavaScript code in `target/web/public`.
+Once configured, any `*.coffee`, `*.litcoffee`, `*.cjx` or `*.cjsx` files placed in `src/main/assets` will be compiled to JavaScript code in `target/web/public`.
 
 Supported settings:
 

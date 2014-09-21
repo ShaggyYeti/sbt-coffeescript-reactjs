@@ -32,7 +32,7 @@ object SbtCoffeeScript extends AutoPlugin {
 
   val coffeeScriptUnscopedSettings = Seq(
 
-    includeFilter := "*.coffee" | "*.litcoffee",
+    includeFilter := "*.csx" | "*.cjsx" | "*.coffee" | "*.litcoffee",
 
     jsOptions := JsObject(
       "bare" -> JsBoolean(bare.value),
@@ -49,7 +49,7 @@ object SbtCoffeeScript extends AutoPlugin {
       inConfig(Assets)(coffeeScriptUnscopedSettings) ++
       inConfig(TestAssets)(coffeeScriptUnscopedSettings) ++
       Seq(
-        moduleName := "coffeescript",
+        moduleName := "coffeescript-reactjs",
         shellFile := getClass.getClassLoader.getResource("coffee.js"),
 
         taskMessage in Assets := "CoffeeScript compiling",

@@ -7,6 +7,7 @@
     var args = process.argv,
         fs = require("fs"),
         coffeeScript = require("coffee-script"),
+        cjsx = require("coffee-react-transform"),
         mkdirp = require("mkdirp"),
         path = require("path");
 
@@ -40,7 +41,7 @@
 
         var input = sourceFileMapping[0];
         options.literate = (endsWith(input, ".litcoffee"));
-        var outputFile = sourceFileMapping[1].replace(options.literate ? ".litcoffee" : ".coffee", ".js");
+        var outputFile = sourceFileMapping[1].replace(/\.coffee$|\.litcoffee$|\.cjsx|\.csx/m, ".js");
         var output = path.join(target, outputFile);
         var sourceMapOutput = output + ".map";
 
@@ -54,7 +55,10 @@
             }
 
             try {
-                var compileResult = coffeeScript.compile(contents, options);
+
+                var transformed = cjsx(contents);
+
+                var compileResult = coffeeScript.compile(transformed, options);
 
                 mkdirp(path.dirname(output), function (e) {
                     throwIfErr(e);
