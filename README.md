@@ -1,13 +1,15 @@
-sbt-coffeescript with JSX-files (ReactJs) conversion.
+sbt-coffeescript with JSX-files (ReactJS) support.
 ================
 
-[![Build Status](https://api.travis-ci.org/sbt/sbt-coffeescript.png?branch=master)](https://travis-ci.org/sbt/sbt-coffeescript)
+based on [sbt-coffeescript](https://github.com/sbt/sbt-coffeescript)
 
 An SBT plugin to compile [CoffeeScript](http://coffeescript.org/) and [CoffeeScript JSX](https://github.com/jsdf/coffee-react-transform/) sources to JavaScript.
 
 To use this plugin use the addSbtPlugin command within your project's `plugins.sbt` file:
 
-    addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")
+    resolvers += Resolver.url("GitHub repository", url("http://shaggyyeti.github.io/releases"))(Resolver.ivyStylePatterns)
+
+    addSbtPlugin("default" % "sbt-coffeescript-reactjs" % "1.0.1-SNAPSHOT")
 
 Your project's build file also needs to enable sbt-web plugins. For example with build.sbt:
 
@@ -27,4 +29,4 @@ Supported settings:
 
 The plugin is built on top of [JavaScript Engine](https://github.com/typesafehub/js-engine) which supports different JavaScript runtimes.
 
-&copy; Typesafe Inc., 2013, 2014
+
